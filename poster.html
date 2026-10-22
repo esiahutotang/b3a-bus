@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Next B3A — try the live bus board</title>
+<meta name="description" content="Live Citybus B3A arrivals from Fu Tai Estate and Shenzhen Bay Port.">
+<meta name="theme-color" content="#c00000">
+<style>
+  :root {
+    --paper: #fcfcf9;
+    --ink: #191919;
+    --red: #c00000;
+    --grey: #6e6a63;
+    --pad: clamp(20px, 4vw, 56px);
+    --spine: clamp(52px, 17vw, 176px);
+  }
+
+  html, body { margin: 0; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: system-ui, "Segoe UI", "PingFang TC", "Microsoft JhengHei", sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .poster {
+    min-height: 100svh;
+    display: grid;
+    grid-template-columns: 1fr var(--spine);
+  }
+
+  .plate {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: clamp(18px, 4vh, 40px);
+    padding: var(--pad);
+    min-width: 0;
+  }
+
+  .operator {
+    margin: 0;
+    font-size: clamp(.8125rem, 1.1vw, .9375rem);
+    font-weight: 600;
+    color: var(--grey);
+  }
+  .operator [lang="zh-Hant"] { margin-left: .35em; }
+
+  .route {
+    margin: clamp(18px, 4vh, 44px) 0 0;
+    min-width: 0;
+  }
+
+  .route-num {
+    display: block;
+    font-size: clamp(5.5rem, 33vw, 24rem);
+    font-weight: 800;
+    line-height: .76;
+    letter-spacing: -.045em;
+    color: var(--red);
+  }
+
+  .foot {
+    margin-top: auto;
+    display: flex;
+    flex-direction: column;
+    gap: clamp(14px, 2.4vh, 22px);
+    min-width: 0;
+  }
+
+  .blurb {
+    margin: 0;
+    max-width: 30ch;
+    font-size: clamp(1.0625rem, 1.55vw, 1.375rem);
+    line-height: 1.45;
+    color: var(--ink);
+  }
+
+  .where { margin: 0; }
+  .nowrap { white-space: nowrap; }
+
+  .where a {
+    color: var(--ink);
+    font-size: clamp(1rem, 1.35vw, 1.1875rem);
+    text-decoration: underline;
+    text-decoration-thickness: .1em;
+    text-underline-offset: .18em;
+    overflow-wrap: break-word;
+    display: inline-block;
+    padding-block: .4em;
+    transition: color .12s linear;
+  }
+  .where a:hover { color: var(--red); }
+  .where a:focus-visible {
+    outline: 3px solid var(--red);
+    outline-offset: 4px;
+    border-radius: 2px;
+  }
+
+  .spine {
+    background: var(--red);
+    color: var(--paper);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--pad) 0;
+  }
+
+  .spine-zh {
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+    font-size: clamp(1.25rem, 2vw, 1.75rem);
+    font-weight: 600;
+    letter-spacing: .22em;
+    line-height: 1;
+    white-space: nowrap;
+    margin-block-end: -.22em;
+  }
+
+  @media (max-width: 560px) {
+    .poster { grid-template-columns: 1fr clamp(44px, 14vw, 72px); }
+    .route-num { font-size: clamp(5rem, 34vw, 9rem); }
+    .blurb { max-width: 24ch; }
+  }
+
+  @media (max-height: 480px) {
+    .plate { padding-top: 16px; padding-bottom: 16px; gap: 12px; }
+    .route { margin-top: 10px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .where a { transition: none; }
+  }
+</style>
+</head>
+<body>
+<main class="poster">
+  <div class="plate">
+    <p class="operator">Citybus <span lang="zh-Hant">城巴</span></p>
+
+    <h1 class="route"><span class="route-num">B3A</span></h1>
+
+    <div class="foot">
+      <p class="blurb">See live B3A arrivals from Fu Tai Estate or Shenzhen Bay Port before you leave.</p>
+      <p class="where"><a href="https://esiahutotang.github.io/b3a-bus/">esiahutotang.github.io/<wbr><span class="nowrap">b3a-bus</span></a></p>
+    </div>
+  </div>
+
+  <aside class="spine">
+    <span class="spine-zh" lang="zh-Hant">嶺南 <span aria-hidden="true">↔</span> 深圳灣口岸</span>
+  </aside>
+</main>
+</body>
+</html>
